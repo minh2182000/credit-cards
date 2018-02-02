@@ -1,0 +1,18 @@
+<p>The idea is to train a a few statistical models / learning methods to the data, pick the model with lowest test error, and use the best model to generalize the user's inputs into output.</p>
+<p>Desired output: Probability of getting instant approval and&nbsp;final approval.</p>
+<p>Input: Bank Name, Card Name, Credit Score, average credit age, Income, New accounts in 3/6/12 months.</p>
+<p>For all models, I assume that for a given bank, weights (importance) of Credit Score, average credit age, Income, New accounts in 3/6/12 months are the same accross all of the bank's credit cards; credit cards from the same bank have different levels of difficulty. Therefore, I would fit/train&nbsp;the models on data from the given bank, using credit cards as dummy variables.</p>
+<p>Notation: Let Instant = 1 if approved instantly, 0 otherwise (either rejected or delayed approval).</p>
+<p>Let Final = 1 if approved finally, 0 otherwise.</p>
+<p>Let Recon = 1 if called for reconsideration given Instant = 0.</p>
+<h2>Logistic Regression</h2>
+<p>Instant approval model: logit(Instant) = b0 + &Sigma;bi*Xi.&nbsp;Predictors are all variables mentioned as input except for Bank Name. I put the model through stepwise algorithm to avoid over-fitting (criterion is AIC).</p>
+<p>Final approval model: logit(Final) = b0 +&nbsp;&Sigma;bi*Xi + a*(1 - Instant)*Recon</p>
+<p>Reason for&nbsp;(1 - Instant)*Recon: when training, this equal to 1 only when Instant = 0 and Recon = 1, which means the model will&nbsp;increase aproval chance if a rejected person calls for reconsideration (this reflects my belief). When predicting, I use the estimate from the Instant model as input for Instant.</p>
+<h2>K - Nearest neighbors</h2>
+<p>Determine the probabilities of approval by taking the approval rate of&nbsp;K people nearest to you (k = 1, 2, etc.).&nbsp;K is chosen through 3-fold cross-validation. "Nearest" is measure by Euclidean distance between 2 points; all variables are standardized before processing so that Salary does not overwhelm other variables (Income's range is thousands while number of accounts is usually below 10).&nbsp;</p>
+<h2>Random Forest</h2>
+<p>This algorithm applies bootstrap aggregating to decision trees. 500 decision trees are created and the approval rate is the percentage of trees that vote for approval.</p>
+<p>Reference:&nbsp;Breiman, L. (2001). Random forests.&nbsp;<em>Machine learning</em>,&nbsp;<em>45</em>(1), 5-32.</p>
+<p>Composed with the <a href="https://html-online.com/editor/" target="_blank" rel="nofollow noopener">HTML instant editor</a>. Please purchase a HTMLg subscription license to stop adding promotional messages to the edited documents.</p>
+<p>&nbsp;</p>
