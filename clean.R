@@ -51,5 +51,5 @@ clean = function(Data){
   
   out2 = out2[, -which(colnames(out2) == "Age" | colnames(out2) == "Income")]
 
-  return(out2)
+  return(na.exclude(out2))
 }

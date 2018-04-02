@@ -5,6 +5,6 @@ account: minhpham
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 198411
-bundleId: 1203932
+bundleId: 1297438
 url: https://minhpham.shinyapps.io/credit/
-when: 1517538131.1931
+when: 1522645137.23687

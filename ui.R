@@ -37,7 +37,7 @@ shinyUI(fluidPage(br(),
                          p("------------------------------------------------------------------------------"),
                          br(),
                          h2("Visualize your position among applicants"),
-                         helpText("Hold and drag to rotate the graph"),
+                         helpText("3D Graph can be rotated. Hold and drag to rotate the graph"),
                          plotlyOutput("plot")
                 ),
                 tabPanel("Methodology Details",
@@ -48,15 +48,17 @@ shinyUI(fluidPage(br(),
                          p(textOutput("accu_LR_I")),
                          p(textOutput("accu_KNN_I")),
                          p(textOutput("accu_RF_I")),
+                         p(textOutput("accu_NN_I")),
                          br(),
                          h3("Final approval:"),
                          p(textOutput("accu_LR_F")),
                          p(textOutput("accu_KNN_F")),
-                         p(textOutput("accu_RF_F"))
+                         p(textOutput("accu_RF_F")),
+                         p(textOutput("accu_NN_F"))
                 ),
                 tabPanel("About",
                          br(),
-                         p("Author: ", a("Linkedin", href = "https://www.linkedin.com/in/minh-pham-728a7577/")),
+                         p("Author: ", a("My Website", href = "https://minhp.weebly.com/")),
                          p("Source code: ", a("https://github.com/minh2182000/credit-cards", href = "https://github.com/minh2182000/credit-cards")),
                          p("Want to leave feedback? You can join the discussion ", a("here", href = "https://www.reddit.com/r/churning/comments/6oiq2e/credit_card_approvaldenial_app/"))
                 )

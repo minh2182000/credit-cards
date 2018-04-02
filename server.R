@@ -1,5 +1,6 @@
 library(shiny)
-library(sqldf); library(boot); library(caret); library(class); library(e1071); library(plotly); library(randomForest)
+library(sqldf); library(boot); library(caret); library(class); library(e1071); library(plotly); library(randomForest); library(nnet)
+credit = read.csv("credit.csv", header = TRUE)
 
 # server
 shinyServer(function(input, output){
@@ -70,7 +71,14 @@ shinyServer(function(input, output){
     out = calc()
     paste("Random Forest accuracy: ", round(out$RF.F.accuracy, 4))
   })
-  
+  output$accu_NN_I = renderText({
+    out = calc()
+    paste("Neural Network accuracy: ", round(out$NN.I.accuracy, 4))
+  })
+  output$accu_NN_F = renderText({
+    out = calc()
+    paste("Neural Network accuracy: ", round(out$NN.F.accuracy, 4))
+  })
 })
 
 
