@@ -1,6 +1,5 @@
 library(shiny)
 library(sqldf); library(boot); library(caret); library(class); library(e1071); library(plotly); library(randomForest); library(nnet)
-credit = read.csv("credit.csv", header = TRUE)
 
 # server
 shinyServer(function(input, output){

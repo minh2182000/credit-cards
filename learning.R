@@ -1,5 +1,4 @@
 load("Train.RData"); source("predict_function.R")
-credit = read.csv("credit.csv", header = TRUE)
 learning = function(bank = "Chase",
                     card = "Freedom",
                     Score = 700,

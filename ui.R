@@ -1,6 +1,5 @@
 library(plotly)
-credit = read.csv("credit.csv", header = TRUE)
-
+source("GetChurningData.R")
 shinyUI(fluidPage(br(),
   # Title
   titlePanel("Estimate Your Chance of Credit Approval"),
