@@ -58,12 +58,16 @@ shinyUI(fluidPage(br(),
                          p(textOutput("accu_RF_F")),
                          p(textOutput("accu_NN_F"))
                 ),
+                tabPanel("Submit Your Data",
+                         tags$iframe(style="height:600px; width:100%", src="https://docs.google.com/forms/d/e/1FAIpQLSfFVaRqTKIel07N0kINkZGO87MiJCgoQUISD9wXZ6ww0R3-tQ/viewform?embedded=true")
+                         ),
                 tabPanel("About",
                          br(),
                          p("Author: ", a("My Website", href = "https://minhp.weebly.com/")),
                          p("Source code: ", a("https://github.com/minh2182000/credit-cards", href = "https://github.com/minh2182000/credit-cards")),
                          p("Want to leave feedback? You can join the discussion ", a("here", href = "https://www.reddit.com/r/churning/comments/6oiq2e/credit_card_approvaldenial_app/"))
                 )
+                
     )
   )
 )
