@@ -32,8 +32,16 @@ shinyServer(function(input, output){
   })
   
   help1 = eventReactive(input$gobutton,{return("(assuming you call for recon if fail for instant approval)")})
+  Warning524 = eventReactive(input$gobutton,{
+      if (input$Bank == "Chase" & (input$New3 >=5 | input$New6 >= 5 | input$New12 >=5))
+        return(paste("WARNING: application is under risk of 5/24 rule, read more ", a("here.", href = "https://www.reddit.com/r/churning/comments/5mhaai/beginners_chase_guide_for_folks_under_524/")))
+  })
   
   #----output ---------------
+  output$Warning524 = renderText({
+      Warning524()
+  })
+  
   output$Instant = renderText({
     out = calc()
     out$I.out

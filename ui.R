@@ -33,11 +33,14 @@ shinyUI(fluidPage(br(),
                          p(textOutput("Instant")),
                          p(textOutput("Final")),
                          p(textOutput("helptext1")),
+                         tags$head(tags$style("#Warning524{color: red}")),
+                         p(htmlOutput("Warning524")),
+                         
                          p("------------------------------------------------------------------------------"),
                          br(),
                          h2("Visualize your position among applicants"),
-                         helpText("3D Graph can be rotated. Hold and drag to rotate the graph"),
-                         plotlyOutput("plot")
+                         helpText("This 3D Graph can be rotated and zoomed. Hold and drag to rotate the graph. Use the scroll on your mouse/touchpad to zoom."),
+                         wellPanel(plotlyOutput("plot"))
                 ),
                 tabPanel("Methodology Details",
                          includeHTML("description.html")
