@@ -1,6 +1,9 @@
 library(plotly)
 source("GetChurningData.R")
-shinyUI(fluidPage(br(),
+shinyUI(fluidPage(
+  tags$head(tags$script(async = NA, src = 'https://www.googletagmanager.com/gtag/js?id=UA-123349686-4'),
+            includeScript("google-analytics.js")),
+  br(),
   # Title
   titlePanel("Estimate Your Chance of Credit Approval"),
   
