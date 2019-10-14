@@ -12,7 +12,7 @@ Clone this repository:
 ## Install requirements
 Libraries:
 `sudo apt-get update`
-`sudo apt-get install libcurl4-openssl-dev`
+`sudo apt-get install libcurl4-openssl-dev libssl-dev`
 
 R:
 `sudo apt-get install r-base-core`
@@ -23,14 +23,13 @@ Shiny:
 `wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb`
 `sudo gdebi shiny-server-1.5.12.933-amd64.deb`
 
-
 Nginx:
 `sudo apt-get install nginx`
 `sudo cp ./shiny-nginx.conf /etc/nginx/conf.d/`
 
 ## Launching server
 Launching shiny:
-`sudo systemctl start shiny-server shiny-server.conf`
+`sudo shiny-server shiny-server.conf > log.txt 2>&1 &`
 
 Launching Nginx:
-`sudo systemctl start nginx`
+`sudo systemctl restart nginx`
