@@ -32,4 +32,4 @@ Launching shiny:
 `sudo shiny-server shiny-server.conf > log.txt 2>&1 &`
 
 Launching Nginx:
-`sudo systemctl restart nginx`
+`sudo systemctl daemon-reload && sudo systemctl restart nginx`
